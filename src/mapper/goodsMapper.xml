@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xg.mapper.GoodsMapper">
+    <insert id="addGoods" parameterType="goods">
+        insert into goods(goodsName,goodsPrice,goodsCreateTime,goodsPath,goodsHttp)
+        values(#{goodsName},#{goodsPrice},#{goodsCreateTime},#{goodsPath},#{goodsHttp})
+    </insert>
+
+    <select id="selectAllGoods" parameterType="goods" resultType="goods">
+        select * from goods
+    </select>
+
+    <select id="selectGoodsById" parameterType="int" resultType="goods">
+        select * from goods where id=#{Gid}
+    </select>
+
+    <delete id="deleteGoodsById" parameterType="int">
+        delete from goods where id=#{id}
+    </delete>
+</mapper>
